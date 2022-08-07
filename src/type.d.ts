@@ -7,7 +7,7 @@ export interface IJson<T=any> {
   [prop: string]: T;
 }
 
-export interface IMessageData {
-  message: any;
+export interface IMessageData<T=any> {
+  message: T;
   id: string;
 }

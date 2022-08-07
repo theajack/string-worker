@@ -2,3 +2,4 @@ node_modules
 dist
 cdn
 .pnpm-debug.log
+npm

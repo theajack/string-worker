@@ -1,13 +1,13 @@
 {
-  "name": "ebuild-rollup",
+  "name": "string-worker",
   "version": "0.0.1",
-  "description": "ebuild-demo",
-  "repository": "git@github.com:theajack/ebuild-template-rollup.git",
+  "description": "Makes creating WebWorkers easier",
+  "repository": "git@github.com:theajack/string-worker.git",
   "author": "tackchen <theajack@qq.com>",
-  "main": "ebuild-demo.min.js",
-  "unpkg": "ebuild-demo.min.js",
-  "jsdelivr": "ebuild-demo.min.js",
-  "typings": "ebuild-demo.min.d.ts",
+  "main": "string-worker.min.js",
+  "unpkg": "string-worker.min.js",
+  "jsdelivr": "string-worker.min.js",
+  "typings": "string-worker.min.d.ts",
   "scripts": {
     "lint": "eslint src --ext ts",
     "_dev": "node scripts/dev.js",
@@ -20,9 +20,9 @@
   ],
   "license": "MIT",
   "bugs": {
-      "url": "https://github.com/theajack/ebuild-template-rollup/issues"
+      "url": "https://github.com/theajack/string-worker/issues"
   },
-  "homepage": "https://shiyix.cn/jsbox/?github=theajack.ebuild-template-rollup",
+  "homepage": "https://shiyix.cn/jsbox/?github=theajack.string-worker",
   "dependencies": {},
 
   "devDependencies": {

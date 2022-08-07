@@ -25,9 +25,9 @@ const config = [
     // 编译typescript, 生成 js 文件
     input: inputFile,
     output: {
-      file: resolveRootPath('npm/ebuild-demo.min.js'),
+      file: resolveRootPath('npm/string-worker.min.js'),
       format: 'umd',
-      name: 'EbuildDemo',
+      name: 'StringWorker',
     },
     plugins: [
       uglify(),

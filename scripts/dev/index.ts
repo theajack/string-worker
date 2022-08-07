@@ -8,23 +8,54 @@ import {StringWorker} from '../../src/index';
 
 const win = (window as any);
 
-win.sw = new StringWorker(/* javascript*/`
-  globalThis.addEventListener('message', function (
-    e
-  ) {
-    const {message, id} = e.data;
-    console.log(e);
+// const worker = new StringWorker(/* javascript*/`
+//   globalThis.addEventListener('message', function (e) {
+//     var data = e.data;
+//     console.log('Worker Receive: ', data);
+//     globalThis.postMessage('Worker Send: '+data)
+//   }, false);
+// `);
 
-    const result = ((msg) => {
-      return msg + ' return';
-    })(message);
+// worker.onMessage(data => {
+//   console.log(data);
+// });
 
-    if (result instanceof Promise) {
-      result.then(function (data) {
-        globalThis.postMessage({id, message: data});
-      });
-    } else {
-      globalThis.postMessage({id, message: result});
-    }
-  }, false);
-`);
+
+// const worker = new StringWorker(/* javascript*/`
+//   globalThis.addEventListener('message', function (e) {
+//     var data = e.data;
+//     console.log('Worker Receive: ', data);
+//     globalThis.postMessage({
+//       message: 'Worker Send: '+data.message,
+//       id: data.id
+//     })
+//   }, false);
+// `);
+
+// let id = 0;
+// worker.postMessage({
+//   message: 'Hello World',
+//   id: `${id++}`
+// }).then(d => {
+//   console.log('Worker Return: ', d);
+// });
+
+const worker = new StringWorker<
+  {msg: string}, // setup返回值
+  {send: string}, // 发送的类型
+  {receive: string} // 返回的类型
+>({
+  setup () {
+    return {msg: 'hello world'};
+  },
+  onmessage (message, data) {
+    return {receive: message.send + data.msg};
+  }
+});
+
+worker.postMessage({send: 'Hello'}).then(d => {
+  console.log(d);
+});
+
+win.sw = worker;
+
