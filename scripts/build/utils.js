@@ -81,6 +81,20 @@ function buildPackageJson (extract = {}) {
   writeJsonIntoFile('@npm/package.json', npmPkg);
 }
 
+function syncVersion (version = '0.0.1') {
+  
+  const pkg = require(resolveRootPath('package.json'));
+
+  if (version) {
+    pkg.version = version;
+    writeJsonIntoFile('@package.json', pkg);
+  } else {
+    version = pkg.version;
+  }
+
+  writeStringIntoFile('@src/version.ts', `export default '${version}';\n`);
+}
+
 module.exports = {
   copyFile,
   resolveRootPath,
@@ -91,4 +105,5 @@ module.exports = {
   buildPackageJson,
   clearDirectory,
   mkdirDir,
+  syncVersion,
 };

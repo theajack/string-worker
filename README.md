@@ -38,7 +38,7 @@
 
 <h3>🚀 Makes creating WebWorkers easier</h3>
 
-**[Online Use](https://theajack.gitee.io/jsbox?github=theajack.string-worker) | [中文](https://github.com/theajack/string-worker/blob/master/README.cn.md) | [Update Log](https://github.com/theajack/string-worker/blob/master/scripts/version.md) | [Feedback bug](https://github.com/theajack/string-worker/issues/new) | [Gitee](https://gitee.com/theajack/string-worker)**
+**[Online Use](https://shiyix.cn/jsbox?github=theajack.string-worker) | [中文](https://github.com/theajack/string-worker/blob/master/README.cn.md) | [Version Log](https://github.com/theajack/string-worker/blob/master/scripts/version.md) | [Feedback bug](https://github.com/theajack/string-worker/issues/new) | [Gitee](https://gitee.com/theajack/string-worker)**
 
 ## 0. Introduction
 
@@ -52,6 +52,27 @@ StringWorker is committed to helping developers access WebWorker at low cost. In
 
 ## 1. Quick use
 
+### 1.0 install
+
+#### 1.0.1 npm install
+
+```
+npm i string-worker
+```
+
+```js
+import StringWorker from 'string-worker';
+```
+
+#### 1.0.2 cdn
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/string-worker/string-worker.min.js"></script>
+<script>
+  window.StringWorker;
+</script>
+```
+
 ### 1.1 Initializing with strings
 
 #### 1.1.1 Using raw data
@@ -64,7 +85,7 @@ const worker = new StringWorker(/* javascript*/`
     // do something...
     console.log('Worker Receive: ', data);
 
-    globalThis.postMessage('Worker Send: '+data)
+    globalThis.postMessage('Worker Send: '+data);
   }, false);
 `);
 
@@ -84,12 +105,12 @@ const worker = new StringWorker(/* javascript*/`
     console.log('Worker Receive: ', data);
 
     // do something...
-    var message = 'Worker Send: '+data.message,
+    var message = 'Worker Send: '+data.message;
 
     globalThis.postMessage({
       message: message,
       id: data.id
-    })
+    });
   }, false);
 `);
 

@@ -4,7 +4,7 @@
  * @Description: Coding something
  */
 
-import {StringWorker} from '../../src/index';
+import StringWorker from '../../src/index';
 
 const win = (window as any);
 

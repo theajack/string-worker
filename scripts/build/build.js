@@ -5,7 +5,7 @@
  */
 
 const execa = require('execa');
-const {resolveRootPath, copyFile, buildPackageJson} = require('./utils');
+const {resolveRootPath, copyFile, buildPackageJson, syncVersion} = require('./utils');
 
 async function build () {
   await execa(
@@ -24,6 +24,7 @@ async function build () {
 }
 
 async function main () {
+  syncVersion(process.argv[2]);
   await build();
   buildPackageJson();
   copyFiles();

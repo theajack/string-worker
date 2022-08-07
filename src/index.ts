@@ -6,9 +6,9 @@
 
 import {IJson, IMessageData} from './type';
 import {codeToBlob, uuid} from './util';
+import version from './version';
 
-
-export interface IStringWorkerOptions<SetUpData=any, SendData=any, ReceiveData=SendData> {
+interface IStringWorkerOptions<SetUpData=any, SendData=any, ReceiveData=SendData> {
   setup?: () => SetUpData;
   onmessage: (message: SendData, data: SetUpData) => ReceiveData;
 }
@@ -27,7 +27,7 @@ globalThis.addEventListener('message', function (
   e
 ) {
   const {message, id} = e.data;
-  console.log(e);
+  // console.log(e);
 
   const result = ${this.funcToString(onmessage, 'message, globalData')}
 
@@ -51,8 +51,8 @@ globalThis.addEventListener('message', function (
   }
 };
 
-export class StringWorker<SetUpData=any, SendData=any, ReceiveData=SendData> {
-  static version: string = '0.0.1';
+class StringWorker<SetUpData=any, SendData=any, ReceiveData=SendData> {
+  static version: string = version;
   private _worker: Worker;
 
   private _resolveMap: IJson<Function> = {};
@@ -115,3 +115,5 @@ export class StringWorker<SetUpData=any, SendData=any, ReceiveData=SendData> {
     this._onMessageListeners.push(listener);
   }
 }
+
+export default StringWorker;
