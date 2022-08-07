@@ -1,0 +1,19 @@
+{
+    "name": "ebuild-rollup",
+    "version": "0.0.1",
+    "description": "ebuild-demo",
+    "main": "ebuild-demo.min.js",
+    "unpkg": "ebuild-demo.min.js",
+    "jsdelivr": "ebuild-demo.min.js",
+    "typings": "ebuild-demo.min.d.ts",
+    "repository": "git@github.com:theajack/ebuild-template-rollup.git",
+    "keywords": [
+    ],
+    "author": "tackchen <theajack@qq.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/theajack/ebuild-template-rollup/issues"
+    },
+    "homepage": "https://shiyix.cn/jsbox/?github=theajack.ebuild-template-rollup",
+    "dependencies": {}
+}
