@@ -6,7 +6,7 @@
 window.jsboxCode = {
   lib: 'https://cdn.jsdelivr.net/npm/string-worker/string-worker.min.js',
   lang: 'javascript',
-  code: /* javascript */`const worker = new StringWorker({
+  code: /* javascript */`var worker = new StringWorker({
   setup () { // 非必须
     return {msg: 'hello world'};
   },
